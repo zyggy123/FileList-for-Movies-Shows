@@ -1,0 +1,127 @@
+:root {
+  color-scheme: dark light;
+  --bg: #16181d;
+  --surface: #22252c;
+  --border: #32363f;
+  --text: #f2f4f8;
+  --muted: #9aa3b2;
+  --accent: #4a9eff;
+  --accent-strong: #2f6fed;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --surface: #f1f3f6;
+    --border: #d9dde4;
+    --text: #171a1f;
+    --muted: #5d6673;
+    --accent: #1f6feb;
+    --accent-strong: #1a5fd0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 320px;
+  margin: 0;
+  padding: 14px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.45 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+.popup__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.popup__head strong {
+  display: block;
+  font-size: 14px;
+}
+
+.account {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.quick {
+  display: flex;
+  gap: 8px;
+}
+
+.quick input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.quick input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.hint {
+  margin: 7px 0 12px;
+  color: var(--muted);
+  font-size: 11.5px;
+  min-height: 16px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+}
+
+.btn--primary {
+  flex: 0 0 auto;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  color: #fff;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--muted);
+}

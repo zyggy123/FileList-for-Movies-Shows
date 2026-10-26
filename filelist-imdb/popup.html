@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <title>FileList</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="popup__head">
+      <span class="logo">FL</span>
+      <div>
+        <strong>FileList</strong>
+        <span class="account" data-i18n="popup.subtitle"></span>
+      </div>
+    </header>
+
+    <form id="quick-search" class="quick">
+      <input id="q" type="search" spellcheck="false" data-i18n-ph="popup.placeholder" />
+      <button type="submit" class="btn btn--primary" data-i18n="popup.search"></button>
+    </form>
+    <p id="hint" class="hint"></p>
+
+    <div class="actions">
+      <button type="button" id="open-site" class="btn" data-i18n="popup.site"></button>
+      <button type="button" id="open-options" class="btn btn--ghost" data-i18n="popup.settings"></button>
+    </div>
+
+    <script src="lib/shared.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        { "header": "origin", "operation": "remove" },
+        { "header": "referer", "operation": "set", "value": "https://www.rottentomatoes.com/" }
+      ]
+    },
+    "condition": {
+      "urlFilter": "||rottentomatoes.com",
+      "resourceTypes": ["xmlhttprequest"]
+    }
+  }
+]

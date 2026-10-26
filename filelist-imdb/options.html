@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="options.title">FileList pentru filme și seriale</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="page__head">
+        <div class="brand">
+          <span class="brand__logo">FL</span>
+          <div>
+            <h1 data-i18n="options.title">FileList pentru filme și seriale</h1>
+            <p class="page__sub" data-i18n="options.subtitle"></p>
+          </div>
+        </div>
+      </header>
+
+      <section class="card">
+        <h2 data-i18n="options.sectionDisplay">Afișare</h2>
+
+        <label class="check">
+          <input id="showCard" type="checkbox" />
+          <span>
+            <span data-i18n="options.showCard">Afișează cardul</span>
+            <small data-i18n="options.showCardHint"></small>
+          </span>
+        </label>
+
+        <label class="check">
+          <input id="showNameSearch" type="checkbox" />
+          <span>
+            <span data-i18n="options.showNameSearch"></span>
+            <small data-i18n="options.showNameSearchHint"></small>
+          </span>
+        </label>
+
+        <label class="check">
+          <input id="openInNewTab" type="checkbox" />
+          <span>
+            <span data-i18n="options.openInNewTab"></span>
+            <small data-i18n="options.openInNewTabHint"></small>
+          </span>
+        </label>
+
+        <label class="check">
+          <input id="showRatings" type="checkbox" />
+          <span>
+            <span data-i18n="options.showRatings"></span>
+            <small data-i18n="options.showRatingsHint"></small>
+          </span>
+        </label>
+
+        <label class="check">
+          <input id="showActorFilms" type="checkbox" />
+          <span>
+            <span data-i18n="options.showActorFilms"></span>
+            <small data-i18n="options.showActorFilmsHint"></small>
+          </span>
+        </label>
+
+        <label class="check">
+          <input id="showSubSearch" type="checkbox" />
+          <span>
+            <span data-i18n="options.showSubSearch"></span>
+            <small data-i18n="options.showSubSearchHint"></small>
+          </span>
+        </label>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="options.sectionCategories"></h2>
+        <p class="hint" data-i18n="options.categoriesHint"></p>
+
+        <label class="check">
+          <input id="allCategories" type="checkbox" />
+          <span>
+            <span data-i18n="options.categoriesAll"></span>
+            <small data-i18n="options.categoriesAllHint"></small>
+          </span>
+        </label>
+
+        <div id="categoryList" class="cats"></div>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="options.sectionSources">Test surse</h2>
+        <p class="hint" data-i18n="options.sourcesHint"></p>
+        <div id="sources" class="sources"></div>
+        <div class="actions">
+          <button type="button" id="testAllSources" class="btn" data-i18n="options.testAll"></button>
+          <span id="sourcesStatus" class="status"></span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="options.sectionCache">Cache</h2>
+        <label class="field field--short">
+          <span class="field__label" data-i18n="options.cacheDays"></span>
+          <select id="cacheDays">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="5">5</option>
+            <option value="7">7</option>
+            <option value="14">14</option>
+            <option value="24">24</option>
+          </select>
+          <small class="field__hint" data-i18n="options.cacheDaysHint"></small>
+        </label>
+        <div class="actions">
+          <button type="button" id="clearCache" class="btn btn--ghost" data-i18n="options.cacheClear"></button>
+          <span id="cacheStatus" class="status"></span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="options.sectionLook">Aspect și limbă</h2>
+
+        <div class="grid">
+          <label class="field">
+            <span class="field__label" data-i18n="options.lang">Limbă</span>
+            <select id="lang">
+              <option value="ro">Română</option>
+              <option value="en">English</option>
+            </select>
+            <small class="field__hint" data-i18n="options.langHint"></small>
+          </label>
+
+          <label class="field">
+            <span class="field__label" data-i18n="options.theme">Stil</span>
+            <select id="theme">
+              <option value="auto" data-i18n="options.themeAuto"></option>
+              <option value="dark" data-i18n="options.themeDark"></option>
+              <option value="light" data-i18n="options.themeLight"></option>
+            </select>
+            <small class="field__hint" data-i18n="options.themeHint"></small>
+          </label>
+
+          <label class="field">
+            <span class="field__label" data-i18n="options.design">Design</span>
+            <select id="design">
+              <option value="classic" data-i18n="options.designClassic"></option>
+              <option value="compact" data-i18n="options.designCompact"></option>
+              <option value="minimal" data-i18n="options.designMinimal"></option>
+              <option value="banner" data-i18n="options.designBanner"></option>
+              <option value="glass" data-i18n="options.designGlass"></option>
+              <option value="outline" data-i18n="options.designOutline"></option>
+              <option value="flat" data-i18n="options.designFlat"></option>
+            </select>
+            <small class="field__hint" data-i18n="options.designHint"></small>
+          </label>
+
+          <label class="field">
+            <span class="field__label" data-i18n="options.position">Unde să apară</span>
+            <select id="position">
+              <option value="after" data-i18n="options.positionAfter"></option>
+              <option value="before" data-i18n="options.positionBefore"></option>
+              <option value="below" data-i18n="options.positionBelow"></option>
+              <option value="top" data-i18n="options.positionTop"></option>
+              <option value="bottom" data-i18n="options.positionBottom"></option>
+              <option value="floating-right" data-i18n="options.positionFloatingRight"></option>
+              <option value="floating-left" data-i18n="options.positionFloatingLeft"></option>
+            </select>
+            <small class="field__hint" data-i18n="options.positionHint"></small>
+          </label>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="options.sectionHow">Cum funcționează</h2>
+        <ul class="howto">
+          <li data-i18n="options.howP1"></li>
+          <li data-i18n="options.howP2"></li>
+          <li data-i18n="options.howP3"></li>
+          <li data-i18n="options.shortcutsHint"></li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="options.sectionSites">Site-uri acceptate</h2>
+        <p class="hint" data-i18n="options.sitesHint"></p>
+        <ul id="sites" class="chips"></ul>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="options.sectionProbe">Verifică un IMDb ID</h2>
+        <p class="hint" data-i18n="options.probeHint"></p>
+        <label class="field">
+          <span class="field__label" data-i18n="options.probeLabel">IMDb ID / link</span>
+          <input id="probe" type="text" spellcheck="false" placeholder="tt27419420" />
+        </label>
+        <div class="actions">
+          <a id="probe-link" class="btn btn--primary is-disabled" href="#" target="_blank" rel="noopener noreferrer" data-i18n="options.probeOpen"></a>
+          <span id="probe-status" class="status"></span>
+        </div>
+      </section>
+
+      <footer class="page__foot">
+        <span>v4.1.0 • <a href="https://filelist.io/browse.php" target="_blank" rel="noopener noreferrer">filelist.io</a> • <span data-i18n="options.footer"></span></span>
+        <span class="page__credit">made up by <strong>zyggy123</strong></span>
+      </footer>
+    </main>
+
+    <script src="lib/shared.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

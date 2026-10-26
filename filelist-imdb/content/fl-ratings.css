@@ -1,0 +1,233 @@
+﻿/* Rândul de note de pe pagina FileList (filelist.io/details.php) */
+
+.fl-ratings {
+  --flr-text: #e9e9e9;
+  --flr-muted: #9aa3b2;
+  --flr-border: rgba(255, 255, 255, 0.18);
+  --flr-panel: rgba(0, 0, 0, 0.28);
+  --flr-accent: #4a9eff;
+
+  display: block;
+  margin: 8px 0 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--flr-text);
+}
+
+.fl-ratings--light {
+  --flr-text: #1a1a1a;
+  --flr-muted: #5d6673;
+  --flr-border: rgba(0, 0, 0, 0.16);
+  --flr-panel: rgba(0, 0, 0, 0.05);
+}
+
+.fl-ratings--dark {
+  --flr-text: #e9e9e9;
+  --flr-muted: #9aa3b2;
+}
+
+.fl-ratings * {
+  box-sizing: border-box;
+}
+
+/* ------------------------------- rândul ------------------------------ */
+
+.fl-ratings__bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0 12px;
+}
+
+.fl-rb {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--flr-text);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.fl-rb:hover {
+  opacity: 0.75;
+  text-decoration: none;
+}
+
+.fl-rb__val {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.2px;
+}
+
+.fl-rb__img {
+  display: block;
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  border-radius: 3px;
+}
+
+.fl-rb__pop {
+  flex: 0 0 auto;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.fl-ratings__missing {
+  margin: 6px 0 0;
+  color: var(--flr-muted);
+  font-size: 11.5px;
+  text-align: center;
+}
+
+.fl-ratings__msg {
+  color: var(--flr-muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ------------------------- săgeata / panoul -------------------------- */
+
+.fl-ratings__more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--flr-text);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.fl-ratings__more:hover {
+  background: var(--flr-panel);
+}
+
+.fl-ratings__more--open {
+  transform: rotate(90deg);
+}
+
+.fl-ratings__panel {
+  margin: 10px auto 0;
+  padding: 10px 12px;
+  border: 1px solid var(--flr-border);
+  border-radius: 8px;
+  background: var(--flr-panel);
+  font-size: 13px;
+  max-width: 460px;
+}
+
+.fl-ratings__row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 3px 0;
+}
+
+.fl-ratings__row-name {
+  flex: 1 1 auto;
+  color: var(--flr-muted);
+  font-weight: 600;
+}
+
+.fl-ratings__row-value {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.fl-ratings__row-sub {
+  color: var(--flr-muted);
+  font-size: 12px;
+}
+
+.fl-ratings__row-link {
+  color: var(--flr-accent);
+  text-decoration: none;
+}
+
+.fl-ratings__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--flr-border);
+}
+
+.fl-ratings__action {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--flr-accent);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.fl-ratings__action:hover {
+  text-decoration: underline;
+}
+
+.fl-ratings__id {
+  margin-left: auto;
+  color: var(--flr-muted);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 11.5px;
+}
+
+/* --------------------------- poziții fixe ---------------------------- */
+
+.fl-ratings--fixed {
+  position: fixed;
+  z-index: 2147483000;
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(20, 21, 26, 0.94);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.4);
+  color: #e9e9e9;
+}
+
+.fl-ratings--fixed.fl-ratings--light {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.fl-ratings--floating-right {
+  right: 18px;
+  bottom: 18px;
+}
+
+.fl-ratings--floating-left {
+  left: 18px;
+  bottom: 18px;
+}
+
+.fl-ratings--top,
+.fl-ratings--bottom {
+  left: 0;
+  right: 0;
+  border-radius: 0;
+  padding: 10px 18px;
+}
+
+.fl-ratings--top {
+  top: 0;
+}
+
+.fl-ratings--bottom {
+  bottom: 0;
+}

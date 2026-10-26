@@ -1,0 +1,89 @@
+{
+  "manifest_version": 3,
+  "name": "FileList for Movies & Shows",
+  "short_name": "FileList",
+  "version": "4.1.0",
+  "description": "Direct FileList search from IMDb, Rotten Tomatoes, Letterboxd, TMDB, Trakt, Metacritic and more, plus IMDb/RT/Metacritic/Letterboxd ratings on FileList pages. 7 designs, 7 positions, RO/EN.",
+  "minimum_chrome_version": "102",
+  "permissions": ["storage", "declarativeNetRequest", "contextMenus"],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "rt_headers",
+        "enabled": true,
+        "path": "rules/rt-headers.json"
+      }
+    ]
+  },
+  "host_permissions": [
+    "https://filelist.io/*",
+    "https://www.imdb.com/*",
+    "https://www.rottentomatoes.com/*",
+    "https://www.metacritic.com/*",
+    "https://backend.metacritic.com/*",
+    "https://letterboxd.com/*",
+    "https://www.wikidata.org/*",
+    "https://query.wikidata.org/*",
+    "https://en.wikipedia.org/*",
+    "https://v3.sg.media-imdb.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "FileList - search",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/src-imdb.png", "icons/src-lb.png", "icons/src-rt.png", "icons/src-mc.png"],
+      "matches": ["*://filelist.io/*"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.imdb.com/title/*",
+        "*://*.rottentomatoes.com/m/*",
+        "*://*.rottentomatoes.com/tv/*",
+        "*://*.letterboxd.com/film/*",
+        "*://*.themoviedb.org/movie/*",
+        "*://*.themoviedb.org/tv/*",
+        "*://*.thetvdb.com/series/*",
+        "*://*.thetvdb.com/movies/*",
+        "*://*.trakt.tv/movies/*",
+        "*://*.trakt.tv/shows/*",
+        "*://*.metacritic.com/movie/*",
+        "*://*.metacritic.com/tv/*",
+        "*://*.allocine.fr/film/*",
+        "*://*.allocine.fr/series/*",
+        "*://*.filmaffinity.com/*film*.html"
+      ],
+      "js": ["lib/shared.js", "content/fl-panel.js"],
+      "css": ["content/fl-panel.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["*://filelist.io/details.php*"],
+      "js": ["lib/shared.js", "content/fl-details.js", "content/fl-actors.js", "content/fl-subs.js"],
+      "css": ["content/fl-panel.css", "content/fl-ratings.css", "content/fl-actors.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

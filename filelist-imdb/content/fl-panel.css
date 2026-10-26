@@ -1,0 +1,481 @@
+﻿/* Card FileList injectat pe paginile de film/serial */
+
+.fl-card {
+  --fl-accent: #4a9eff;
+  --fl-accent-strong: #2f6fed;
+  --fl-bg: rgba(255, 255, 255, 0.06);
+  --fl-border: rgba(255, 255, 255, 0.16);
+  --fl-text: #f5f5f5;
+  --fl-muted: rgba(255, 255, 255, 0.62);
+
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  flex: 1 0 100%;
+  max-width: 780px;
+  margin: 12px 0 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--fl-border);
+  border-radius: 10px;
+  background: var(--fl-bg);
+  color: var(--fl-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: left;
+  pointer-events: auto;
+  backdrop-filter: blur(2px);
+}
+
+.fl-card--light {
+  --fl-bg: #ffffff;
+  --fl-border: rgba(0, 0, 0, 0.14);
+  --fl-text: #1a1a1a;
+  --fl-muted: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.fl-card *,
+.fl-card *::before,
+.fl-card *::after {
+  box-sizing: border-box;
+}
+
+/* --------------------------- poziÈ›ii fixe ---------------------------- */
+
+.fl-card--fixed {
+  position: fixed;
+  z-index: 2147483000;
+  margin: 0;
+  background: #1b1e24;
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.38);
+}
+
+.fl-card--fixed.fl-card--light {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.14);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.fl-card--floating-right {
+  right: 18px;
+  bottom: 18px;
+  width: auto;
+  max-width: 340px;
+}
+
+.fl-card--floating-left {
+  left: 18px;
+  bottom: 18px;
+  width: auto;
+  max-width: 340px;
+}
+
+.fl-card--top,
+.fl-card--bottom {
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: none;
+  border-radius: 0;
+  padding: 9px 18px;
+}
+
+.fl-card--top {
+  top: 0;
+  border-width: 0 0 1px;
+}
+
+.fl-card--bottom {
+  bottom: 0;
+  border-width: 1px 0 0;
+}
+
+.fl-card--top .fl-card__actions,
+.fl-card--bottom .fl-card__actions {
+  flex-wrap: wrap;
+}
+
+.fl-card--top .fl-card__hint,
+.fl-card--bottom .fl-card__hint {
+  display: none;
+}
+
+/* ------------------------------ header ------------------------------- */
+
+.fl-card__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.fl-card--top .fl-card__head,
+.fl-card--bottom .fl-card__head {
+  margin-bottom: 6px;
+}
+
+.fl-card__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 auto;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--fl-accent-strong), var(--fl-accent));
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.fl-card__logo--inline {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  font-size: 10px;
+}
+
+.fl-card__brand {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.fl-card__id {
+  margin-left: auto;
+  padding: 3px 9px;
+  border: 1px dashed var(--fl-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fl-muted);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.fl-card__id:hover {
+  border-color: var(--fl-accent);
+  color: var(--fl-accent);
+}
+
+.fl-card__id--copied {
+  border-color: #4caf50;
+  border-style: solid;
+  color: #4caf50;
+}
+
+.fl-card__site {
+  margin-left: auto;
+  padding: 3px 9px;
+  border: 1px solid var(--fl-border);
+  border-radius: 999px;
+  color: var(--fl-muted);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.fl-card__close {
+  margin-left: 6px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  flex: 0 0 auto;
+  border: 1px solid var(--fl-border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--fl-muted);
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.fl-card__close:hover {
+  border-color: var(--fl-accent);
+  color: var(--fl-accent);
+}
+
+.fl-card--floating-left .fl-card__close,
+.fl-card--floating-right .fl-card__close {
+  margin-left: 4px;
+}
+
+/* ------------------------------ butoane ------------------------------ */
+
+.fl-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.fl-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border: 1px solid var(--fl-border);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--fl-text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+}
+
+.fl-card__btn:hover {
+  background: rgba(127, 127, 127, 0.16);
+  border-color: var(--fl-accent);
+  text-decoration: none;
+}
+
+.fl-card__btn:active {
+  transform: translateY(1px);
+}
+
+.fl-card__btn--primary {
+  background: linear-gradient(135deg, var(--fl-accent-strong), var(--fl-accent));
+  border-color: transparent;
+  color: #fff;
+}
+
+.fl-card__btn--primary:hover {
+  background: linear-gradient(135deg, #2a61d6, #3f8fe8);
+  border-color: transparent;
+}
+
+.fl-card__btn--ghost {
+  color: var(--fl-muted);
+}
+
+/* -------------------------------- hint ------------------------------- */
+
+.fl-card__hint {
+  margin: 9px 0 0;
+  color: var(--fl-muted);
+  font-size: 12px;
+}
+
+/* ------------------------------ design 2: compact --------------------- */
+
+.fl-card--compact {
+  max-width: 560px;
+  padding: 8px 11px;
+}
+
+.fl-card--compact .fl-card__head {
+  margin-bottom: 7px;
+}
+
+.fl-card--compact .fl-card__logo {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+}
+
+.fl-card--compact .fl-card__btn {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+/* ------------------------------ design 3: minimal --------------------- */
+
+.fl-card--minimal {
+  width: auto;
+  flex: 0 0 auto;
+  max-width: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.fl-card--minimal .fl-card__actions {
+  gap: 6px;
+}
+
+.fl-card--minimal .fl-card__btn {
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.fl-card--minimal .fl-card__btn--ghost {
+  border: 1px solid var(--fl-border);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--fl-text);
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.fl-card--minimal.fl-card--light .fl-card__btn--ghost {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.14);
+}
+
+/* ------------------------------ design 4: banner --------------------- */
+
+.fl-card--banner {
+  max-width: none;
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2f6fed, #4a9eff 70%, #38b6ff);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(47, 111, 237, 0.28);
+  backdrop-filter: none;
+}
+
+.fl-card--banner .fl-card__logo {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.fl-card--banner .fl-card__id,
+.fl-card--banner .fl-card__site {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.fl-card--banner .fl-card__id--copied {
+  border-color: #c8f7c5;
+  color: #c8f7c5;
+}
+
+.fl-card--banner .fl-card__btn {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+
+.fl-card--banner .fl-card__btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #fff;
+}
+
+.fl-card--banner .fl-card__btn--primary {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #1c46a5;
+}
+
+.fl-card--banner .fl-card__btn--primary:hover {
+  background: #eef3ff;
+  border-color: #eef3ff;
+}
+
+.fl-card--banner .fl-card__btn--ghost {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.fl-card--banner .fl-card__hint {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.fl-card--banner .fl-card__close {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+
+/* ------------------------- stil forțat întunecat --------------------- */
+
+.fl-card--dark {
+  --fl-bg: #191c22;
+  --fl-border: rgba(255, 255, 255, 0.18);
+  --fl-text: #f5f5f5;
+  --fl-muted: rgba(255, 255, 255, 0.64);
+  background: var(--fl-bg);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.fl-card--dark.fl-card--fixed {
+  background: #191c22;
+}
+
+/* ------------------------- design 5: glass --------------------------- */
+
+.fl-card--glass {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(10px) saturate(140%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.fl-card--glass.fl-card--light {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.fl-card--glass.fl-card--dark {
+  background: rgba(20, 22, 28, 0.62);
+}
+
+.fl-card--glass.fl-card--fixed {
+  background: rgba(24, 27, 34, 0.82);
+}
+
+.fl-card--glass.fl-card--fixed.fl-card--light {
+  background: rgba(255, 255, 255, 0.86);
+}
+
+/* ------------------------- design 6: outline ------------------------- */
+
+.fl-card--outline {
+  background: transparent;
+  border: 2px solid var(--fl-accent);
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.fl-card--outline .fl-card__brand {
+  color: var(--fl-accent);
+}
+
+.fl-card--outline .fl-card__btn {
+  border-color: var(--fl-accent);
+}
+
+.fl-card--outline .fl-card__btn--primary {
+  background: var(--fl-accent-strong);
+  background-image: none;
+}
+
+.fl-card--outline.fl-card--fixed {
+  background: rgba(20, 22, 28, 0.94);
+}
+
+.fl-card--outline.fl-card--fixed.fl-card--light {
+  background: #ffffff;
+}
+
+/* ------------------------- design 7: flat ---------------------------- */
+
+.fl-card--flat {
+  border-radius: 4px;
+  border-color: rgba(127, 127, 127, 0.35);
+  background: rgba(127, 127, 127, 0.14);
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.fl-card--flat .fl-card__logo,
+.fl-card--flat .fl-card__btn,
+.fl-card--flat .fl-card__id,
+.fl-card--flat .fl-card__site {
+  border-radius: 3px;
+}
+
+.fl-card--flat .fl-card__btn--primary,
+.fl-card--flat .fl-card__logo {
+  background: var(--fl-accent-strong);
+  background-image: none;
+}
