@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="icons/icon128.png" width="88" height="88" alt="FileList for Movies & Shows">
-</p>
-
 <h1 align="center">FileList for Movies &amp; Shows</h1>
 
 <p align="center">
