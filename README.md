@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="icons/icon128.png" width="88" height="88" alt="FileList for Movies & Shows">
+</p>
+
 <h1 align="center">FileList for Movies &amp; Shows</h1>
 
 <p align="center">
@@ -37,6 +41,46 @@ Four things, in both directions between the movie databases and FileList:
 No account and no API keys are required: everything is built from public pages, opened in your own browser where
 you are already logged in.
 
+## 📸 Screenshots
+
+<p align="center">
+  <img src="screenshots/01-card-imdb.png" width="620" alt="Search card on IMDb"><br>
+  <sub><b>Search card</b> — right under the title on IMDb, Rotten Tomatoes, Letterboxd, TMDB, Trakt and more</sub>
+</p>
+
+<p align="center">
+  <img src="screenshots/03-ratings-row.png" width="620" alt="Ratings row on FileList"><br>
+  <sub><b>Ratings row</b> — Letterboxd, IMDb, Rotten Tomatoes and Metacritic on every FileList torrent page</sub>
+</p>
+
+<table>
+  <tr>
+    <td width="50%"><img src="screenshots/05-actor-films.png" alt="Actor filmography panel"><br>
+      <sub><b>Actor filmography</b> — magnifier on every cast photo, with sort &amp; filter</sub></td>
+    <td width="50%"><img src="screenshots/06-subtitles.png" alt="Subtitle search panel"><br>
+      <sub><b>Subtitle search</b> — the exact release name on 7 sites</sub></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/04-ratings-details.png" alt="Ratings details"><br>
+      <sub><b>Ratings details</b> — exact values, votes and links</sub></td>
+    <td><img src="screenshots/02-designs.png" alt="Designs"><br>
+      <sub><b>7 designs</b> — card, compact, button, banner, glass, outline, flat</sub></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/07-settings.png" alt="Settings"><br>
+      <sub><b>Settings</b> — every switch, category filter, cache</sub></td>
+    <td><img src="screenshots/08-source-test.png" alt="Source test"><br>
+      <sub><b>Source test</b> — one probe per source, with HTTP code and latency</sub></td>
+  </tr>
+</table>
+
+<p align="center">
+  <img src="screenshots/09-popup.png" width="330" alt="Quick search popup"><br>
+  <sub><b>Popup</b> — quick search by IMDb ID, link or title</sub>
+</p>
+
+> The screenshots are rendered with the extension's own components on demo pages (no real site content), so they
+> show exactly what the UI looks like without exposing anyone's account.
 ### 🎬 Search card on movie sites
 
 The card reads the page, extracts the IMDb ID (URL → IMDb links → JSON-LD → meta tags) and builds
@@ -135,6 +179,7 @@ filelist-imdb/
 │   └── fl-subs.js         subtitle magnifier + site list
 ├── rules/rt-headers.json  declarativeNetRequest header fix for Rotten Tomatoes
 ├── icons/                 extension icons + source logos (IMDb, RT, Letterboxd, Metacritic)
+├── screenshots/           the images used in this README
 ├── options.html/.css/.js  settings page (RO/EN)
 └── popup.html/.css/.js    quick search popup
 ```
@@ -178,6 +223,46 @@ Patru lucruri, în ambele direcții între bazele de date de film și FileList:
 Nu ai nevoie de cont sau de chei API: totul se construiește din pagini publice, deschise în browserul tău, unde
 ești deja logat.
 
+### 📸 Capturi de ecran
+
+<p align="center">
+  <img src="screenshots/01-card-imdb.png" width="620" alt="Cardul pe IMDb"><br>
+  <sub><b>Cardul de căutare</b> — direct sub titlu pe IMDb, Rotten Tomatoes, Letterboxd, TMDB, Trakt și altele</sub>
+</p>
+
+<p align="center">
+  <img src="screenshots/03-ratings-row.png" width="620" alt="Rândul de note pe FileList"><br>
+  <sub><b>Rândul de note</b> — Letterboxd, IMDb, Rotten Tomatoes și Metacritic pe fiecare pagină de torrent</sub>
+</p>
+
+<table>
+  <tr>
+    <td width="50%"><img src="screenshots/05-actor-films.png" alt="Panoul cu filmografia actorului"><br>
+      <sub><b>Filmografia actorului</b> — lupă pe fiecare poză, cu sortare și filtrare</sub></td>
+    <td width="50%"><img src="screenshots/06-subtitles.png" alt="Panoul de subtitrări"><br>
+      <sub><b>Căutare subtitrări</b> — numele exact al release-ului pe 7 site-uri</sub></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/04-ratings-details.png" alt="Detalii note"><br>
+      <sub><b>Detaliile notelor</b> — valori exacte, voturi și linkuri</sub></td>
+    <td><img src="screenshots/02-designs.png" alt="Designuri"><br>
+      <sub><b>7 designuri</b> — card, compact, buton, banner, sticlă, contur, flat</sub></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/07-settings.png" alt="Setări"><br>
+      <sub><b>Setările</b> — fiecare opțiune, filtrarea pe categorii, cache</sub></td>
+    <td><img src="screenshots/08-source-test.png" alt="Test surse"><br>
+      <sub><b>Test surse</b> — o cerere de probă per sursă, cu cod HTTP și durată</sub></td>
+  </tr>
+</table>
+
+<p align="center">
+  <img src="screenshots/09-popup.png" width="330" alt="Fereastra de căutare rapidă"><br>
+  <sub><b>Popup</b> — căutare rapidă după IMDb ID, link sau titlu</sub>
+</p>
+
+> Capturile sunt randate cu componentele extensiei pe pagini demonstrative (fără conținut real de pe site-uri), deci
+> arată exact cum apare interfața, fără să expună contul nimănui.
 ### 🎬 Cardul pe site-urile de filme
 
 Cardul citește pagina, scoate IMDb ID-ul (URL → linkuri IMDb → JSON-LD → meta taguri) și construiește
@@ -276,6 +361,7 @@ filelist-imdb/
 │   └── fl-subs.js         lupa de la subtitrări + lista de site-uri
 ├── rules/rt-headers.json  regulă declarativeNetRequest pentru Rotten Tomatoes
 ├── icons/                 iconițele extensiei + logo-urile sursă (IMDb, RT, Letterboxd, Metacritic)
+├── screenshots/           imaginile folosite în acest README
 ├── options.html/.css/.js  pagina de setări (RO/EN)
 └── popup.html/.css/.js    fereastra de căutare rapidă
 ```
